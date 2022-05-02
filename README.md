@@ -2,7 +2,7 @@
 
 ## Requests
 
-http://localhost:8080/sigabem/calcular-frete/ - POST
+http://localhost:8080/sigabem/calcular-frete/ - **POST**
 
 ### Body
 
