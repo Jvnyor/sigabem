@@ -1,4 +1,4 @@
-package br.com.javatest.sigabem.exception;
+package br.com.sigabem.frete.exception;
 
 public class ViaCepException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package br.com.javatest.sigabem.controller;
+package br.com.sigabem.frete.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.javatest.sigabem.model.dto.FreteInput;
-import br.com.javatest.sigabem.model.dto.FreteResponse;
-import br.com.javatest.sigabem.service.FreteService;
+import br.com.sigabem.frete.model.dto.FreteInput;
+import br.com.sigabem.frete.model.dto.FreteResponse;
+import br.com.sigabem.frete.service.FreteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 

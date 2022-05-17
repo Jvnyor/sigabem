@@ -1,4 +1,4 @@
-package br.com.javatest.sigabem.model.dto;
+package br.com.sigabem.frete.model.dto;
 
 import javax.validation.constraints.NotEmpty;
 

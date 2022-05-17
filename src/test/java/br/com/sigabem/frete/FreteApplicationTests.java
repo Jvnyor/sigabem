@@ -1,10 +1,10 @@
-package br.com.javatest.sigabem;
+package br.com.sigabem.frete;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SigaBemApplicationTests {
+class FreteApplicationTests {
 
 	@Test
 	void contextLoads() {

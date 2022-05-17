@@ -1,13 +1,13 @@
-package br.com.javatest.sigabem;
+package br.com.sigabem.frete;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SigaBemApplication {
+public class FreteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SigaBemApplication.class, args);
+		SpringApplication.run(FreteApplication.class, args);
 	}
 
 }

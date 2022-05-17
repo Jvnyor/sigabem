@@ -1,8 +1,8 @@
-package br.com.javatest.sigabem.utils;
+package br.com.sigabem.frete.utils;
 
 import java.util.Objects;
 
-import br.com.javatest.sigabem.exception.ViaCepException;
+import br.com.sigabem.frete.exception.ViaCepException;
 
 public class CEPUtils {
 

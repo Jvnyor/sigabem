@@ -1,4 +1,4 @@
-package br.com.javatest.sigabem.model;
+package br.com.sigabem.frete.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

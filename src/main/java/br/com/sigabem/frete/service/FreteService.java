@@ -1,4 +1,4 @@
-package br.com.javatest.sigabem.service;
+package br.com.sigabem.frete.service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import br.com.javatest.sigabem.model.Cep;
-import br.com.javatest.sigabem.model.Frete;
-import br.com.javatest.sigabem.model.dto.FreteInput;
-import br.com.javatest.sigabem.model.dto.FreteResponse;
-import br.com.javatest.sigabem.repository.FreteRepository;
-import br.com.javatest.sigabem.utils.CEPUtils;
+import br.com.sigabem.frete.model.Cep;
+import br.com.sigabem.frete.model.Frete;
+import br.com.sigabem.frete.model.dto.FreteInput;
+import br.com.sigabem.frete.model.dto.FreteResponse;
+import br.com.sigabem.frete.repository.FreteRepository;
+import br.com.sigabem.frete.utils.CEPUtils;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
