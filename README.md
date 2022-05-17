@@ -27,7 +27,7 @@ mvn clean package
 E por fim para executar
 
 ```
-java -jar target/sigabem-0.0.1-SNAPSHOT.jar
+java -jar target/frete-0.0.1-SNAPSHOT.jar
 ```
 
 ## Requests
