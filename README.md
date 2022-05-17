@@ -1,5 +1,35 @@
 # Projeto SigaBem para Calculo de Frete
 
+Clone do projeto para executar localmente
+
+```
+git clone https://github.com/Jvnyor/sigabem.git
+```
+
+Para baixar as dependências Maven
+
+```
+mvn clean install
+```
+
+Para dar start na aplicação usando o Spring Boot
+
+```
+mvn spring-boot:run
+```
+
+Se preferir criar um arquivo JAR para execução
+
+```
+mvn clean package
+```
+
+E por fim para executar
+
+```
+java -jar target/sigabem-0.0.1-SNAPSHOT.jar
+```
+
 ## Requests
 
 http://localhost:8080/sigabem/calcular-frete/ - **POST**
