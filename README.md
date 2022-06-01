@@ -3,7 +3,7 @@
 Clone do projeto para executar localmente
 
 ```
-git clone https://github.com/Jvnyor/sigabem.git
+git clone https://github.com/Jvnyor/sigabem-frete.git
 ```
 
 Para baixar as dependências Maven
