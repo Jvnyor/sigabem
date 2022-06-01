@@ -23,6 +23,6 @@ public class FreteController {
 	@PostMapping("/calcular-frete")
 	@Operation(summary = "Calcular frete e persistir no banco de dados", description = "Calculo do frete")
 	public ResponseEntity<FreteResponse> calcularFreteESalvar(FreteInput freteInput) {
-		return ResponseEntity.ok(freteService.calcularFreteESalvar(freteInput));
+		return ResponseEntity.ok(freteService.salvarFrete(freteInput));
 	}
 }

@@ -2,10 +2,13 @@ package br.com.sigabem.frete.service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import br.com.sigabem.frete.model.Cep;
 import br.com.sigabem.frete.model.Frete;
@@ -25,22 +28,18 @@ public class FreteService {
 	private static final String VIACEP_URL = "https://viacep.com.br/ws/";
 
 	public Cep findCep(String cepString) {
+		Cep request = new RestTemplate().getForObject(VIACEP_URL + cepString + "/json", Cep.class);
 
-		try {
-
-			Cep request = new RestTemplate().getForObject(VIACEP_URL + cepString + "/json", Cep.class);
-
-			log.info("[VIA CEP API] - [RESULTADO DA BUSCA: {}]", request.toString());
-
-			return request;
-
-		} catch (RuntimeException e) {
-			e.printStackTrace();
+		if (Objects.isNull(request)) {
+			throw new IllegalArgumentException("Cep não é válido!");
 		}
-		return null;
+
+		log.info("[VIA CEP API] - [RESULTADO DA BUSCA: {}]", request.toString());
+
+		return request;
 	}
 
-	public FreteResponse calcularFreteESalvar(FreteInput freteInput) {
+	public FreteResponse salvarFrete(FreteInput freteInput) {
 
 		CEPUtils.validaCep(freteInput.getCepOrigem());
 		CEPUtils.validaCep(freteInput.getCepDestino());
@@ -51,6 +50,19 @@ public class FreteService {
 		String cepOrigemMascarado = CEPUtils.mascararCep(freteInput.getCepOrigem());
 		String cepDestinoMascarado = CEPUtils.mascararCep(freteInput.getCepDestino());
 
+		var frete = calcularFrete(freteInput, cepOrigemSemMascara, cepDestinoSemMascara);
+
+		freteRepository.save(frete);
+
+		return FreteResponse.builder()
+				.cepOrigem(cepOrigemMascarado)
+				.cepDestino(cepDestinoMascarado)
+				.dataPrevistaEntrega(frete.getDataPrevistaEntrega())
+				.vlTotalFrete(frete.getVlTotalFrete())
+				.build();
+	}
+
+	private Frete calcularFrete(FreteInput freteInput, String cepOrigemSemMascara, String cepDestinoSemMascara) {
 		var frete = Frete.builder()
 				.dataConsulta(LocalDateTime.now())
 				.nomeDestinatario(freteInput.getNomeDestinatario())
@@ -69,15 +81,8 @@ public class FreteService {
 			frete.setVlTotalFrete(freteInput.getPeso());
 			frete.setDataPrevistaEntrega(LocalDate.now().plusDays(10));
 		}
-
-		freteRepository.save(frete);
-
-		return FreteResponse.builder()
-				.cepOrigem(cepOrigemMascarado)
-				.cepDestino(cepDestinoMascarado)
-				.dataPrevistaEntrega(frete.getDataPrevistaEntrega())
-				.vlTotalFrete(frete.getVlTotalFrete())
-				.build();
+		
+		return frete;
 	}
 
 }
