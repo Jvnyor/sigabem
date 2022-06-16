@@ -32,7 +32,7 @@ java -jar target/frete-0.0.1-SNAPSHOT.jar
 
 ## Requests
 
-http://localhost:8080/sigabem/calcular-frete/ - **POST**
+http://localhost:8080/sigabem/frete/calcular/ - **POST**
 
 ### Body
 
@@ -75,5 +75,3 @@ CREATE TABLE frete (
   PRIMARY KEY (id)
 );
 ```
-
-Caso haja problemas com a conexão, é provável que a opção Public Key Retrieval esteja habilitada no MySQL, portando é recomendável desativar para a aplicação Spring conectar ao banco.

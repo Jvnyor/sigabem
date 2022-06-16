@@ -14,13 +14,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @Tag(name = "Sistema de calculo de frete SigaBem")
-@RequestMapping("/sigabem/")
+@RequestMapping("/api/v1/sigabem/frete")
 public class FreteController {
 
 	@Autowired
 	private FreteService freteService;
 
-	@PostMapping("/calcular-frete")
+	@PostMapping("/calcular")
 	@Operation(summary = "Calcular frete e persistir no banco de dados", description = "Calculo do frete")
 	public ResponseEntity<FreteResponse> calcularFreteESalvar(FreteInput freteInput) {
 		return ResponseEntity.ok(freteService.salvarFrete(freteInput));
