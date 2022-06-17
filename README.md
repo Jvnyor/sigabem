@@ -32,7 +32,7 @@ java -jar target/frete-0.0.1-SNAPSHOT.jar
 
 ## Requests
 
-http://localhost:8080/sigabem/frete/calcular/ - **POST**
+http://localhost:8080/api/v1/sigabem/frete/calcular/ - **POST**
 
 ### Body
 
